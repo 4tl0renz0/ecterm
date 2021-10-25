@@ -1,9 +1,6 @@
 # Overview
 A custom terminal built in Rust, inspired from one of my previous projects.
 
-
-
-
 # Details
 ECTerm (pronounced "EK-TURM") is a terminal (or more like a concept of one) that I started building on a while ago, along with some others.
 
