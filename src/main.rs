@@ -1,6 +1,5 @@
 use std::io::*;
-// use std::io::prelude::*;
-use std::process;
+use std::process::*;
 
 fn main() {
     println!("Initializing...");
@@ -22,11 +21,12 @@ Input \"help\" for commands.", vmajor, vminor, vfix);
         print!(">");
         std::io::stdout().flush().unwrap();
         std::io::stdin().read_line(&mut term).ok().expect("[ERROR: Failed to read line]");
-       /*
-        *if term == "exit" {
-        *    print!("Thank you for using ECTerm.");
-        *    process::exit(0x0100);
-        *};
-        */
+        term.remove(term.len() - 1);
+        if term == "exit" {
+            print!("Thank you for using ECTerm.");
+            process::exit(0x0100);
+        };
+
+        term = String::new();
     }
 }
