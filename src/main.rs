@@ -3,9 +3,10 @@ use std::process;
 
 // temporary, to try something out
 use std::{thread, time::Duration};
+use std::path::Path;
 
 /*
-   Packig 4 l8r
+   Packing 4 l8r
    ____________________________
   |____________________________|
    |                          |
@@ -17,7 +18,7 @@ use std::{thread, time::Duration};
 
 fn main() {
     println!("");
-    for n in 1..10 {
+    for n in 1..20 {
         print!("\rInitializing... /");
         thread::sleep(Duration::from_millis(100));
         std::io::stdout().flush().unwrap();
@@ -45,14 +46,20 @@ fn main() {
 
     println!("\rECTerm v{0}.{1}.{2}\nCopyright (c) Redpendrew 2021\nSee Redpendrew @ \"https://github.com/Redpendrew\"\nSee the ECTerm repository @ \"https://github.com/Redpendrew/ECTerm\"\nInput \"help\" for commands.", vmajor, vminor, vfix);
     loop {
-        print!("{}>", dir);
+        print!("@{}>", dir);
         std::io::stdout().flush().unwrap();
         std::io::stdin().read_line(&mut term).ok().expect("[ERROR: Failed to read line]");
         term.remove(term.len() - 1);
 
         if term.contains("cd") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
-            dir.push_str(term_parts[1]);
+            let reqdir = vec![dir.to_string(),term_parts[1].to_string()].join("/");
+            let b: bool = Path::new(&reqdir).is_dir();
+            if b == true {
+                dir.push_str(term_parts[1]);
+            } else {
+                println!("[ERROR: Directory path: {}: not found]", reqdir);
+            };
         };
 
         if term.contains("mkdir") {
