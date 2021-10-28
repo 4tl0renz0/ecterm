@@ -1,7 +1,11 @@
 use std::io::*;
 use std::process;
 
+// temporary, to try something out
+use std::{thread, time::Duration};
+
 /*
+   Packig 4 l8r
    ____________________________
   |____________________________|
    |                          |
@@ -12,7 +16,22 @@ use std::process;
 */
 
 fn main() {
-    println!("Initializing...");
+    println!("");
+    for n in 1..10 {
+        print!("\rInitializing... /");
+        thread::sleep(Duration::from_millis(100));
+        std::io::stdout().flush().unwrap();
+        print!("\rInitializing... -");
+        thread::sleep(Duration::from_millis(100));
+        std::io::stdout().flush().unwrap();
+        print!("\rInitializing... \\");
+        thread::sleep(Duration::from_millis(100));
+        std::io::stdout().flush().unwrap();
+        print!("\rInitializing... |");
+        thread::sleep(Duration::from_millis(100));
+        std::io::stdout().flush().unwrap();
+    }
+    println!("");
     // major version number
     let vmajor: u8 = 0;
     // minor version number
@@ -24,7 +43,7 @@ fn main() {
     // directory tracking variable
     let mut dir = String::new();
 
-    println!("ECTerm v{0}.{1}.{2}\nCopyright (c) Redpendrew 2021\nSee Redpendrew @ \"https://github.com/Redpendrew\"\nSee the ECTerm repository @ \"https://github.com/Redpendrew/ECTerm\"\nInput \"help\" for commands.", vmajor, vminor, vfix);
+    println!("\rECTerm v{0}.{1}.{2}\nCopyright (c) Redpendrew 2021\nSee Redpendrew @ \"https://github.com/Redpendrew\"\nSee the ECTerm repository @ \"https://github.com/Redpendrew/ECTerm\"\nInput \"help\" for commands.", vmajor, vminor, vfix);
     loop {
         print!("{}>", dir);
         std::io::stdout().flush().unwrap();
