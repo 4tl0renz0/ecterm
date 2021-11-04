@@ -1,5 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
+/* nav bar */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #252525;
+}
+
+nav ul li {
+  display: inline;
+  float: left;
+}
+
+nav ul li a {
+  display: block;
+  text-align: center;
+  color: #f1f1f1;
+  padding: 8px;
+  background-color: #dddddd;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #111111;
+}
+
+nav ul li a:active {
+  background-color: #0fdb46;
+}
+/* nav bar END */
+
 div#downarrow {
   text-align: center;
   width: 1em;
