@@ -25,12 +25,21 @@ body {
   padding-bottom: 32px;
 }
 
+h1 {
+  font-family: monospace;
+  font-size: 86px;
+  text-align: center;
+  padding-top: 25vh;
+  padding-bottom: 25vh;
+}
+
 h1.intro {
   font-family: monospace;
   font-size: 86px;
   text-align: center;
   padding-top: 25vh;
 }
+
 
 p.intro {
   font-family: 'Varela Round', sans-serif;
@@ -48,6 +57,7 @@ article {
   border-radius: 16px;
   margin: auto;
   max-width: 75%;
+  margin-bottom: 50px;
 }
 
 p {
