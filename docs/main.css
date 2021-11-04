@@ -22,16 +22,12 @@ nav ul li a {
   text-align: center;
   color: #f1f1f1;
   padding: 8px;
-  background-color: #dddddd;
+  background-color: #252525;
   text-decoration: none;
 }
 
 nav ul li a:hover {
   background-color: #111111;
-}
-
-nav ul li a:active {
-  background-color: #0fdb46;
 }
 /* nav bar END */
 
