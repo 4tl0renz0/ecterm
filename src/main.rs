@@ -60,22 +60,16 @@ fn main() {
             } else {
                 println!("[ERROR: Directory path: {}: not found]", reqdir);
             };
-        };
-
-        if term.contains("mkdir") {
+        } else if term.contains("mkdir") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
             
-        };
-
-        if term.contains("twm") {
+        } else if term.contains("twm") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
             println!("{0}", term_parts[1]);
-        };
-
-        if term == "exit" {
+        } else if term == "exit" {
             println!("Thank you for using ECTerm.");
             process::exit(0x0100);
-        };
+        } else {println!("Invalid command or term.")}
 
         term = String::new();
     }
