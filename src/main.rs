@@ -17,22 +17,27 @@ use std::path::Path;
 */
 
 fn main() {
-    println!("");
-    for n in 1..20 {
-        print!("\rInitializing... /");
-        thread::sleep(Duration::from_millis(100));
-        std::io::stdout().flush().unwrap();
-        print!("\rInitializing... -");
-        thread::sleep(Duration::from_millis(100));
-        std::io::stdout().flush().unwrap();
-        print!("\rInitializing... \\");
-        thread::sleep(Duration::from_millis(100));
-        std::io::stdout().flush().unwrap();
-        print!("\rInitializing... |");
-        thread::sleep(Duration::from_millis(100));
-        std::io::stdout().flush().unwrap();
+    fn print_init() {
+        println!("");
+        loop {
+            print!("\rInitializing... /");
+            thread::sleep(Duration::from_millis(100));
+            std::io::stdout().flush().unwrap();
+            print!("\rInitializing... -");
+            thread::sleep(Duration::from_millis(100));
+            std::io::stdout().flush().unwrap();
+            print!("\rInitializing... \\");
+            thread::sleep(Duration::from_millis(100));
+            std::io::stdout().flush().unwrap();
+            print!("\rInitializing... |");
+            thread::sleep(Duration::from_millis(100));
+            std::io::stdout().flush().unwrap();
+            /*if loaded == true {
+                println!("");
+                break;
+            }*/
+        }
     }
-    println!("");
     // major version number
     let vmajor: u8 = 0;
     // minor version number
@@ -62,7 +67,7 @@ fn main() {
             };
         } else if term.contains("mkdir") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
-            
+
         } else if term.contains("twm") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
             println!("{0}", term_parts[1]);

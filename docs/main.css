@@ -10,7 +10,6 @@ nav ul {
   background-color: #252525;
   position: fixed;
   top: 0;
-  /* width: 100%; */
   border: solid 2px #161616;
   border-radius: 4px;
 }
@@ -28,9 +27,6 @@ nav ul li a {
   font-size: 20px;
   background-color: #252525;
   text-decoration: none;
-  /* seperator-BETA
-  border-right: solid 2px #161616;
-  */
 }
 
 nav ul li a:hover {
@@ -67,15 +63,15 @@ h1 {
   font-family: monospace;
   font-size: 86px;
   text-align: center;
-  padding-top: 25vh;
-  padding-bottom: 25vh;
+  padding-top: 35vh;
+  padding-bottom: 35vh;
 }
 
 h1.intro {
   font-family: monospace;
   font-size: 86px;
   text-align: center;
-  padding-top: 25vh;
+  padding-top: 35vh;
 }
 
 
@@ -105,7 +101,17 @@ p {
 
 a {
   color: #00ff00;
-  /* target: "_blank"; */
+}
+
+code {
+  font-family: monospace;
+  color: #00ff00;
+  background-color: #000000;
+  border: 0px;
+  border-radius: 4px;
+  padding: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 div#footer {
