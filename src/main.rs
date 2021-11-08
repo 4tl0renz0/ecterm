@@ -1,9 +1,8 @@
 use std::io::*;
 use std::process;
-
-// temporary, to try something out
 use std::{thread, time::Duration};
 use std::path::Path;
+use futures::future::Future;
 
 /*
    Packing 4 l8r
@@ -16,28 +15,31 @@ use std::path::Path;
 
 */
 
-fn main() {
-    fn print_init() {
-        println!("");
-        loop {
-            print!("\rInitializing... /");
-            thread::sleep(Duration::from_millis(100));
-            std::io::stdout().flush().unwrap();
-            print!("\rInitializing... -");
-            thread::sleep(Duration::from_millis(100));
-            std::io::stdout().flush().unwrap();
-            print!("\rInitializing... \\");
-            thread::sleep(Duration::from_millis(100));
-            std::io::stdout().flush().unwrap();
-            print!("\rInitializing... |");
-            thread::sleep(Duration::from_millis(100));
-            std::io::stdout().flush().unwrap();
-            /*if loaded == true {
-                println!("");
-                break;
-            }*/
+async fn loading(text: &str, loadvar: bool) {
+    println!("");
+    'textloop: loop {
+        print!("\r{} /", text);
+        thread::sleep(Duration::from_millis(100));
+        std::io::stdout().flush().unwrap();
+        print!("\r{} -", text);
+        thread::sleep(Duration::from_millis(100));
+        std::io::stdout().flush().unwrap();
+        print!("\r{} \\", text);
+        thread::sleep(Duration::from_millis(100));
+        std::io::stdout().flush().unwrap();
+        print!("\r{} |", text);
+        thread::sleep(Duration::from_millis(100));
+        std::io::stdout().flush().unwrap();
+        if loadvar == true {
+            println!("");
+            break 'textloop;
         }
     }
+}
+
+fn main() {
+    let mut loaded: bool = false;
+    loading("Initializing...", loaded);
     // major version number
     let vmajor: u8 = 0;
     // minor version number
@@ -48,6 +50,7 @@ fn main() {
     let mut term = String::new();
     // directory tracking variable
     let mut dir = String::new();
+    loaded = true;
 
     println!("\rECTerm v{0}.{1}.{2}\nCopyright (c) Redpendrew 2021\nSee Redpendrew @ \"https://github.com/Redpendrew\"\nSee the ECTerm repository @ \"https://github.com/Redpendrew/ECTerm\"\nInput \"help\" for commands.", vmajor, vminor, vfix);
     loop {
