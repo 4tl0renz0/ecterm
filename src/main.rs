@@ -58,25 +58,29 @@ fn main() {
         std::io::stdin().read_line(&mut term).ok().expect("[ERROR: Failed to read line]");
         term.remove(term.len() - 1);
 
-        if term.contains("cd") {
+        if term == "help" {
+            println!("\{sample help menu\}");
+        } else if term.contains("cd") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
             let reqdir = vec![dir.to_string(),term_parts[1].to_string()].join("/");
-            let b: bool = Path::new(&reqdir).is_dir();
-            if b == true {
+            let dir_exists: bool = Path::new(&reqdir).is_dir();
+            if dir_exists == true {
                 dir.push_str(term_parts[1]);
             } else {
-                println!("[ERROR: Directory path: {}: not found]", reqdir);
+                println!("[ERROR: Directory path: {}: is not a valid directory]", reqdir);
             };
         } else if term.contains("mkdir") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
 
-        } else if term.contains("twm") {
+        } else if term.contains("test") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
-            println!("{0}", term_parts[1]);
+            println!("{}", term_parts[1]);
         } else if term == "exit" {
             println!("Thank you for using ECTerm.");
             process::exit(0x0100);
-        } else {println!("Invalid command or term.")}
+        } else {
+            println!("Invalid command or term.");
+        }
 
         term = String::new();
     }
