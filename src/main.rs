@@ -2,21 +2,9 @@ use std::io::*;
 use std::process;
 use std::{thread, time::Duration};
 use std::path::Path;
-use futures::executor::block_on;
 
-/*
-   possible uses for later
-   ____________________________________
-  |____________________________________|
-   |                                  |
-   |   use std::fs;                   |
-   |   use std::path::Path;           |
-   |   use futures::future::Future;   |
-   |__________________________________|
-
-*/
-
-async fn loading(text: &str, loadvar: bool) {
+// loading text function still in testing
+async fn loading(text: &str, loaded: bool) {
     println!("");
     'textloop: loop {
         print!("\r{} /", text);
@@ -31,7 +19,7 @@ async fn loading(text: &str, loadvar: bool) {
         print!("\r{} |", text);
         thread::sleep(Duration::from_millis(100));
         std::io::stdout().flush().unwrap();
-        if loadvar == true {
+        if loaded == true {
             println!("");
             break 'textloop;
         }
@@ -59,7 +47,7 @@ fn main() {
         term.remove(term.len() - 1);
 
         if term == "help" {
-            println!("\{sample help menu\}");
+            println!("{{sample help menu}}");
         } else if term.contains("cd") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
             let reqdir = vec![dir.to_string(),term_parts[1].to_string()].join("/");
