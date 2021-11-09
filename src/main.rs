@@ -2,28 +2,14 @@ use std::io::*;
 use std::process;
 use std::{thread, time::Duration};
 use std::path::Path;
+use std::fs;
 
-// loading text function still in testing
-async fn loading(text: &str, loaded: bool) {
-    println!("");
-    'textloop: loop {
-        print!("\r{} /", text);
-        thread::sleep(Duration::from_millis(100));
-        std::io::stdout().flush().unwrap();
-        print!("\r{} -", text);
-        thread::sleep(Duration::from_millis(100));
-        std::io::stdout().flush().unwrap();
-        print!("\r{} \\", text);
-        thread::sleep(Duration::from_millis(100));
-        std::io::stdout().flush().unwrap();
-        print!("\r{} |", text);
-        thread::sleep(Duration::from_millis(100));
-        std::io::stdout().flush().unwrap();
-        if loaded == true {
-            println!("");
-            break 'textloop;
-        }
-    }
+// for directory creation
+pub fn create_dir<P: AsRef<Path>>(path: P) -> Result<()>
+
+fn mkdir(dir) -> std::io::Result<()> {
+    fs::create_dir(dir)?;
+    Ok(())
 }
 
 fn main() {
@@ -59,7 +45,10 @@ fn main() {
             };
         } else if term.contains("mkdir") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
-
+            let reqdir = vec![dir.to_string(),term_parts[1].to_string()].join("/");
+            mkdir(reqdir)
+                .ok("{0} created @ {1} successfully.", term_parts[1], dir)
+                .except("[ERROR: fn: \"mkdir()\": refused to create directory]");
         } else if term.contains("test") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
             println!("{}", term_parts[1]);
