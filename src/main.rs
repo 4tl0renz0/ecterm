@@ -4,14 +4,6 @@ use std::{thread, time::Duration};
 use std::path::Path;
 use std::fs;
 
-// for directory creation
-pub fn create_dir<P: AsRef<Path>>(path: P) -> Result<()>
-
-fn mkdir(dir) -> std::io::Result<()> {
-    fs::create_dir(dir)?;
-    Ok(())
-}
-
 fn main() {
     println!("Initializing...");
     // major version number
@@ -46,9 +38,7 @@ fn main() {
         } else if term.contains("mkdir") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
             let reqdir = vec![dir.to_string(),term_parts[1].to_string()].join("/");
-            mkdir(reqdir)
-                .ok("{0} created @ {1} successfully.", term_parts[1], dir)
-                .except("[ERROR: fn: \"mkdir()\": refused to create directory]");
+            // create directory here
         } else if term.contains("test") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
             println!("{}", term_parts[1]);
