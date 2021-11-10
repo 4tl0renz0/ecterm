@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.png">
     <title>ECTerm | The Project</title>
     <link rel="stylesheet" href="css/main.css">
     <!--<script src=""></script>-->
@@ -15,12 +15,29 @@
     </ul></nav>
     <h1>The Project</h1>
     <article>
-      <p>Probably going to be one of the most elaborate sections yet.</p>
-      <p>This page will contain information about the repository, the planned out stages of development, and how ECTerm came to be.</p>
+      <p><strong>This page is probably going to be the most elaborate yet.</strong></p>
+      <p>This page will contain information about the ECTerm repository, the planned out stages of development, and how ECTerm came to be.</p>
       <h2>The Repository</h2>
-      <p>The ECTerm git repository can be found on <a href="https://github.com/Redpendrew/ECTerm" target="_blank">github.com</a>, where all of the magic is held.<br>
-        You can find this website in the <code>docs</code> folder and open a pull request if there's an issue.</p>
-      <p>The repository (of course,) is where you'll find the latest releases and updates, as well as all the source code.</p>
+      <p>The ECTerm git repository can be found <a href="https://github.com/Redpendrew/ECTerm" target="_blank">here</a>, on <a href="https://github.com/" target="_blank">GitHub</a>, which is a <a href="https://git-scm.com/" target="_blank">git</a>-based code hosting website, and hence, where the magic is held.</p>
+      <p>(Side note: You can find this website in the <code>docs</code> folder and open a pull request if there's an issue.)</p>
+      <p>Again, the repository is where you'll find the latest releases and updates, as well as all the source code.</p>
+      <h2>Stages of development</h2>
+      <p>(This is also briefly mentioned in the <a href="features.html">features</a> page.)</p>
+      <h3>Stage 1 - Basic terminal functionality</h3>
+      <p>Not the most exciting, but still a start. This would be when you can change directories, create them, list directory contents, <code>echo</code> text, run updates, create files, list a file's contents, delete files and directories, and the like.</p>
+      <h3>Stage 2 - Basic text editor</h3>
+      <p>This is tricky. Either I'll try to package in an editor, build my own, or add something super minimalistic, like a simple input/output system.</p>
+      <p>Though when I first thought about this problem, a thought popped into my head:<br>What about the user's choice?</p>
+      <h3>Stage 3 - Package manager</h3>
+      <p>You remember when I said the text editor would be tricky? Well, <em>this</em> would be a <em>nightmare</em>.<br>...kind of.</p>
+      <p>There are a few ways I could approach this (ranked from easiest to hardest):</p>
+      <ol>
+        <li>Having a repository with packages in it</li>
+        <li>Adding funtionality for getting binaries from <a href="https://crates.io/" target="_blank">crates.io</a></li>
+        <li>Adding funtionality for getting packages from other repositories</li>
+        <li>Creating a site presicely for hosing ECTerm packages (though maybe for other uses as well)</li>
+      </ol>
+      <p>The most convenient and flexible way to get packages would probably be from a pre-hosted repository from something like GitHub.</p>
     </article>
     <div id="footer">
       <p>© <a href="https://github.com/Redpendrew/" target="_blank">Redpendrew</a> 2021 under the <a href="https://choosealicense.com/licenses/mit/" target="_blank">MIT license</a></p>
