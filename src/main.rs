@@ -21,7 +21,7 @@ fn main() {
     loop {
         print!("@{}>", dir);
         std::io::stdout().flush().unwrap();
-        std::io::stdin().read_line(&mut term).ok().expect("[ERROR: Failed to read line]");
+        std::io::stdin().read_line(&mut term).ok().expect("[ERROR: Failed to read input]");
         term.remove(term.len() - 1);
 
         if term == "help" {
@@ -37,11 +37,22 @@ fn main() {
             };
         } else if term.contains("mkdir") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
-            let reqdir = vec![dir.to_string(),term_parts[1].to_string()].join("/");
+            let reqdir: String = vec![dir.to_string(),term_parts[1].to_string()].join("/");
             // create directory here
-        } else if term.contains("test") {
+        } else if term.contains("echo") {
             let term_parts: Vec<_> = term.split_whitespace().collect();
-            println!("{}", term_parts[1]);
+            let mut i: usize = 1;
+            while i < term_parts.len() {
+                print!("{}", term_parts[i]);
+                std::io::stdout().flush().unwrap();
+                if i != term_parts.len() {
+                    print!(" ");
+                    std::io::stdout().flush().unwrap();
+                }
+                i = i + 1;
+            }
+            print!("\n");
+            std::io::stdout().flush().unwrap();
         } else if term == "exit" {
             println!("Thank you for using ECTerm.");
             process::exit(0x0100);
