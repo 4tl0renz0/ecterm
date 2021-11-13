@@ -152,6 +152,7 @@ div#footer {
   max-width: 85%;
   background: linear-gradient(#252525, #111111);
   border: 4px solid #0f0f0f;
+  font-size: 75%;
   border-radius: 16px;
   margin: auto;
 }
