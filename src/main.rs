@@ -1,4 +1,4 @@
-use std::io::*;
+use std::io::{self, Write};
 use std::process;
 use std::{thread, time::Duration};
 use std::path::Path;
@@ -17,11 +17,11 @@ fn main() {
     // directory tracking variable
     let mut dir = String::new();
 
-    println!("\rECTerm v{0}.{1}.{2}\nCopyright (c) Redpendrew 2021\nSee Redpendrew @ \"https://github.com/Redpendrew\"\nSee the ECTerm repository @ \"https://github.com/Redpendrew/ECTerm\"\nInput \"help\" for commands.", vmajor, vminor, vfix);
+    println!("ECTerm v{0}.{1}.{2}\nCopyright (c) 2021 Redpendrew [MIT license]\nSee Redpendrew @ \"https://github.com/Redpendrew\"\nSee the ECTerm repository @ \"https://github.com/Redpendrew/ECTerm\"\nInput \"help\" for commands.", vmajor, vminor, vfix);
     loop {
-        print!("@{}>", dir);
-        std::io::stdout().flush().unwrap();
-        std::io::stdin().read_line(&mut term).ok().expect("[ERROR: Failed to read input]");
+        print!("@{}/>", dir);
+        io::stdout().flush().unwrap();
+        io::stdin().read_line(&mut term).ok().expect("[ERROR: Failed to read input]");
         term.remove(term.len() - 1);
 
         if term == "help" {
@@ -44,15 +44,15 @@ fn main() {
             let mut i: usize = 1;
             while i < term_parts.len() {
                 print!("{}", term_parts[i]);
-                std::io::stdout().flush().unwrap();
+                io::stdout().flush().unwrap();
                 if i != term_parts.len() {
                     print!(" ");
-                    std::io::stdout().flush().unwrap();
+                    io::stdout().flush().unwrap();
                 }
                 i = i + 1;
             }
             print!("\n");
-            std::io::stdout().flush().unwrap();
+            io::stdout().flush().unwrap();
         } else if term == "exit" {
             println!("Thank you for using ECTerm.");
             process::exit(0x0100);
