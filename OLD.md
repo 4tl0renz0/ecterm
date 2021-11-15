@@ -1,4 +1,7 @@
-# Overview
+# OLD.md
+This is ECTerm's old README, and hence, it is named `OLD.md`. `README` is taking its place.
+
+## Overview
 A custom terminal built in Rust, inspired from one of my previous projects.
 
 ## Details
