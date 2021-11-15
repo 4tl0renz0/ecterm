@@ -2,6 +2,8 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+var progName = document.getElementById("progName");
+
 async function typeECTerm() {
   progName.innerHTML = ">_";
   await sleep(850);
