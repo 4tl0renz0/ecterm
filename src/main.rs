@@ -1,6 +1,5 @@
 use std::io::{self, Write};
 use std::process;
-use std::{thread, time::Duration};
 use std::path::Path;
 use std::fs;
 
@@ -23,11 +22,11 @@ fn main() {
         io::stdout().flush().unwrap();
         io::stdin().read_line(&mut term).ok().expect("[ERROR: Failed to read input]");
         term.remove(term.len() - 1);
+        let term_parts: Vec<_> = term.split_whitespace().collect();
 
-        if term == "help" {
+        if term_parts[0] == "help" {
             println!("{{sample help menu}}");
-        } else if term.contains("cd") {
-            let term_parts: Vec<_> = term.split_whitespace().collect();
+        } else if term_parts[0] == "cd" {
             let reqdir = vec![dir.to_string(),term_parts[1].to_string()].join("/");
             let dir_exists: bool = Path::new(&reqdir).is_dir();
             if dir_exists == true {
@@ -35,12 +34,10 @@ fn main() {
             } else {
                 println!("[ERROR: Directory path: {}: is not a valid directory]", reqdir);
             };
-        } else if term.contains("mkdir") {
-            let term_parts: Vec<_> = term.split_whitespace().collect();
+        } else if term_parts[0] == "mkdir" {
             let reqdir: String = vec![dir.to_string(),term_parts[1].to_string()].join("/");
             // create directory here
-        } else if term.contains("echo") {
-            let term_parts: Vec<_> = term.split_whitespace().collect();
+        } else if term_parts[0] == "echo" {
             let mut i: usize = 1;
             while i < term_parts.len() {
                 print!("{}", term_parts[i]);
