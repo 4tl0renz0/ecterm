@@ -16,7 +16,7 @@ fn main() {
     // directory tracking variable
     let mut dir = String::new();
 
-    println!("ECTerm v{0}.{1}.{2}\nCopyright (c) 2021 EthoCode [MIT license]\nSee EthoCode @ \"https://github.com/ethocode\"\nSee the ECTerm repository @ \"https://github.com/ethocode/ecterm\"\nInput \"help\" for commands.", vmajor, vminor, vfix);
+    println!("ECTerm v{0}.{1}.{2}\nCopyright (c) 2021 EthoCode [MIT license]\nInput \"help\" for commands.", vmajor, vminor, vfix);
     loop {
         print!("{}}}>", dir);
         io::stdout().flush().unwrap();
