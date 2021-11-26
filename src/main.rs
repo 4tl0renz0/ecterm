@@ -18,7 +18,7 @@ fn main() {
 
     println!("ECTerm v{0}.{1}.{2}\nCopyright (c) 2021 EthoCode [MIT license]\nSee EthoCode @ \"https://github.com/ethocode\"\nSee the ECTerm repository @ \"https://github.com/ethocode/ecterm\"\nInput \"help\" for commands.", vmajor, vminor, vfix);
     loop {
-        print!("{}>", dir);
+        print!("{}}}>", dir);
         io::stdout().flush().unwrap();
         io::stdin().read_line(&mut term).ok().expect("[ERROR: Failed to read input]");
         term.remove(term.len() - 1);
