@@ -28,7 +28,7 @@ fn main() {
             println!("{{sample help menu}}");
         } else if term_parts[0] == "cd" {
            // if term_parts[1] == ".." {
-           //     println!("")
+           //     go back one dir here...
            // } else {
                 let reqdir = vec![dir.to_string(),term_parts[1].to_string()].join("/");
                 let dir_exists: bool = Path::new(&reqdir).is_dir();
