@@ -18,7 +18,7 @@ fn main() {
 
     println!("ECTerm v{0}.{1}.{2}\nCopyright (c) 2021 Redpendrew [MIT license]\nSee Redpendrew @ \"https://github.com/Redpendrew\"\nSee the ECTerm repository @ \"https://github.com/Redpendrew/ECTerm\"\nInput \"help\" for commands.", vmajor, vminor, vfix);
     loop {
-        print!("@{}/>", dir);
+        print!("{}>", dir);
         io::stdout().flush().unwrap();
         io::stdin().read_line(&mut term).ok().expect("[ERROR: Failed to read input]");
         term.remove(term.len() - 1);
@@ -33,10 +33,12 @@ fn main() {
                 dir.push_str(term_parts[1]);
             } else {
                 println!("[ERROR: Directory path: {}: is not a valid directory]", reqdir);
-            };
+            }
+        } else if term_parts[0] == "cdir" {
+            println!("Current directory is: {}", dir)
         } else if term_parts[0] == "mkdir" {
             let reqdir: String = vec![dir.to_string(),term_parts[1].to_string()].join("/");
-            // create directory here
+            fs::create_dir(reqdir);
         } else if term_parts[0] == "echo" {
             let mut i: usize = 1;
             while i < term_parts.len() {
@@ -57,6 +59,7 @@ fn main() {
             println!("Invalid command or term.");
         }
 
+        println!();
         term = String::new();
     }
 }
