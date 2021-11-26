@@ -6,15 +6,15 @@
 ███████╗╚██████╗   ██║   ███████╗██║  ██║██║ ╚═╝ ██║
 ╚══════╝ ╚═════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝
 ```
-## ECTerm.
+# ECTerm.
 Not your system-default terminal...
 ...yet...
 
-## OVERVIEW
+## Overview
 ECTerm aims to have the features functionality of any other terminal (plus a few extras), but with a more friendly and sleek feel to it.
 ECTerm is pronounced (ek-TURM).
 
-## FEATURES
+## Features
 So far, ECTerm contains the following:
 - Changing of directories `cd`
 - Creation of directories `mkdir`
@@ -26,7 +26,7 @@ ECTerm aims to implement the following:
 - User preferences file
 ...and more!
 
-## GOALS
+## Goals
 ECTerm's short-term goals are as follows:
 - Get the first release out
 - Create custom configuration options
