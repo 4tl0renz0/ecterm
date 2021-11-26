@@ -27,13 +27,17 @@ fn main() {
         if term_parts[0] == "help" {
             println!("{{sample help menu}}");
         } else if term_parts[0] == "cd" {
-            let reqdir = vec![dir.to_string(),term_parts[1].to_string()].join("/");
-            let dir_exists: bool = Path::new(&reqdir).is_dir();
-            if dir_exists == true {
-                dir.push_str(term_parts[1]);
-            } else {
-                println!("[ERROR: Directory path: {}: is not a valid directory]", reqdir);
-            }
+           // if term_parts[1] == ".." {
+           //     println!("")
+           // } else {
+                let reqdir = vec![dir.to_string(),term_parts[1].to_string()].join("/");
+                let dir_exists: bool = Path::new(&reqdir).is_dir();
+                if dir_exists == true {
+                    dir.push_str(term_parts[1]);
+                } else {
+                    println!("[ERROR: Directory path: {}: is not a valid directory]", reqdir);
+                }
+           // }
         } else if term_parts[0] == "cdir" {
             println!("Current directory is: {}", dir)
         } else if term_parts[0] == "mkdir" {
