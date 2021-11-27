@@ -58,7 +58,7 @@ fn main() {
             io::stdout().flush().unwrap();
         } else if term_parts[0] == "exit" {
             println!("Thank you for using ECTerm.");
-            process::exit(1);
+            process::exit(0);
         } else {
             println!("Invalid command or term.");
         }
